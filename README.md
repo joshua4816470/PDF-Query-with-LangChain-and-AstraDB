@@ -1,54 +1,63 @@
-# PDF-Query-with-LangChain-and-AstraDB
+# 📚 PDF Query with LangChain and Cassandra AstraDB
 
+This repository showcases a complete **Retrieval-Augmented Generation (RAG)** pipeline that allows users to query any PDF and get instant, context-based answers powered by **LangChain**, **OpenAI**, and **AstraDB**.
 
-This repository showcases a complete Retrieval-Augmented Generation (RAG) pipeline that allows users to query any PDF and get instant, context-based answers powered by LangChain, OpenAI, and AstraDB.
+---
 
-🔍 Key Features
+## 🔍 Key Features
 
-Extracts text from PDFs using PyPDF2
+- 📄 Extracts text from PDFs using **PyPDF2**  
+- ✂️ Splits long text into semantic chunks via LangChain’s `CharacterTextSplitter`  
+- 🧮 Converts chunks into **vector embeddings** using `OpenAIEmbeddings`  
+- 🗃️ Stores and retrieves vectors from **Cassandra AstraDB** for high-speed **similarity search**  
+- 🤖 Generates intelligent, context-driven answers using **OpenAI’s LLM**  
+- 💬 Supports **real-time Q&A** from the command line  
 
-Splits long text into semantic chunks via LangChain’s CharacterTextSplitter
+---
 
-Converts chunks into vector embeddings using OpenAIEmbeddings
+## 🧠 Tech Stack
 
-Stores and retrieves vectors from Cassandra AstraDB for high-speed similarity search
+| Component | Description |
+|------------|-------------|
+| **LangChain** | Orchestrates LLMs, embeddings, and retrieval |
+| **OpenAI API** | Used for embeddings and generative responses |
+| **Cassandra AstraDB** | Cloud-native vector database for storing embeddings |
+| **PyPDF2** | Extracts and parses text from PDF documents |
+| **Python 3.10+** | Primary programming language |
 
-Generates intelligent, context-driven answers using OpenAI’s LLM
+---
 
-Supports real-time Q&A from command line
+## ⚙️ Project Workflow
 
-🧠 Tech Stack
+1. **Extract text from PDF** using `PyPDF2`  
+2. **Split into overlapping chunks** with `CharacterTextSplitter`  
+3. **Embed text** using `OpenAIEmbeddings`  
+4. **Store embeddings** in **AstraDB** through the `CassIO` connector  
+5. **Retrieve similar chunks** via vector search  
+6. **Generate contextual answers** using `LangChain` + `OpenAI` LLM  
 
-LangChain – Orchestrates LLMs, embeddings, and retrieval
+---
 
-OpenAI API – For embeddings and generative responses
+## 💡 Use Case Example
 
-Cassandra AstraDB – Cloud-native vector database
+You can query research papers, manuals, or academic PDFs — for example, comparing **Neuro-Symbolic AI** and **Statistical Relational AI** papers to derive conceptual similarities through embeddings.  
+The system retrieves semantically related passages from both sources and formulates a synthesized explanation in natural language.
 
-PyPDF2 – For PDF text extraction
+---
 
-Python 3.10+
+## 📊 Key Metrics
 
-⚙️ Project Workflow
+| Metric | Result |
+|---------|--------|
+| PDF Size | ~20 pages |
+| Processed Chunks | ~50 text segments |
+| Average Retrieval Latency | < 2 seconds |
+| Semantic Relevance Accuracy | ~90% (manually validated) |
 
-Extract text from PDF
+---
 
-Split into overlapping chunks
+## 🏁 Quick Start
 
-Embed using OpenAI
-
-Store vectors in AstraDB
-
-Retrieve and answer queries via LangChain
-
-💡 Use Case Example
-
-You can query research papers, manuals, or academic PDFs — for example, comparing Neuro-Symbolic AI and Statistical Relational AI papers to derive conceptual similarities through embeddings.
-
-📊 Key Metrics
-
-~50 text chunks processed from a 20-page PDF
-
-<2-second retrieval latency
-
-~90% semantic relevance accuracy
+```bash
+# 1. Install dependencies
+pip install lang
